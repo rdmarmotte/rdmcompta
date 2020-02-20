@@ -1,0 +1,8 @@
+#notifications {
+  grid-template-columns: .5fr .5fr 64px; }
+
+.mini.user a {
+  padding: 4px; }
+  .mini.user a img {
+    border: 2px solid #ddd;
+    border-radius: 50%; }

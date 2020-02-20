@@ -1,0 +1,92 @@
+<?php
+namespace RDMarmotte\RdmCompta;
+
+use ITRocks\Framework\Locale\Loc;
+use ITRocks\Framework\Mapper\Component;
+use ITRocks\Framework\Property\Reflection_Property;
+use ITRocks\Framework\Tools\Date_Time;
+use RDMarmotte\RdmCompta\Operation\Type;
+
+/**
+ * Opération
+ *
+ * @business
+ * @display_order compte, date, type, libelle_1, libelle_2, montant, pointage
+ * @feature
+ * @representative date, libelle_1, montant
+ */
+class Operation
+{
+	use Component;
+
+	//--------------------------------------------------------------------------------------- $compte
+	/**
+	 * @composite
+	 * @default Compte::courant
+	 * @link Object
+	 * @var Compte
+	 */
+	public $compte;
+
+	//----------------------------------------------------------------------------------------- $date
+	/**
+	 * @default Date_Time::today
+	 * @link DateTime
+	 * @mandatory
+	 * @var Date_Time
+	 */
+	public $date;
+
+	//------------------------------------------------------------------------------------ $libelle_1
+	/**
+	 * @var string
+	 */
+	public $libelle_1;
+
+	//------------------------------------------------------------------------------------ $libelle_2
+	/**
+	 * @var string
+	 */
+	public $libelle_2;
+
+	//-------------------------------------------------------------------------------------- $montant
+	/**
+	 * @decimals 2
+	 * @mandatory
+	 * @unsigned
+	 * @var float
+	 */
+	public $montant;
+
+	//------------------------------------------------------------------------------------- $pointage
+	/**
+	 * @mandatory
+	 * @values non, pointée, rapprochée
+	 * @var string
+	 */
+	public $pointage = 'non';
+
+	//----------------------------------------------------------------------------------------- $type
+	/**
+	 * @link Object
+	 * @mandatory
+	 * @var Type
+	 */
+	public $type;
+
+	//------------------------------------------------------------------------------------ __toString
+	/**
+	 * @noinspection PhpDocMissingThrowsInspection
+	 * @return string
+	 */
+	public function __toString()
+	{
+		/** @noinspection PhpUnhandledExceptionInspection */
+		return join(SP, [
+			Loc::dateToLocale($this->date),
+			$this->libelle_1,
+			Loc::propertyToLocale(new Reflection_Property($this, 'montant'), $this->montant)
+		]);
+	}
+
+}
