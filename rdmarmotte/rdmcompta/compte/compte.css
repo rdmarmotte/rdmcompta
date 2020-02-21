@@ -1,0 +1,17 @@
+@charset "UTF-8";
+#quick-menu h2 {
+  background-color: #d8d8d8;
+  font-weight: 500;
+  padding: 4px; }
+#quick-menu ul li {
+  height: 26px !important; }
+  #quick-menu ul li h3, #quick-menu ul li p {
+    display: table-cell;
+    padding: 4px;
+    vertical-align: middle; }
+  #quick-menu ul li h3 {
+    font-weight: normal; }
+  #quick-menu ul li p {
+    text-align: right; }
+    #quick-menu ul li p:after {
+      content: ' €'; }
