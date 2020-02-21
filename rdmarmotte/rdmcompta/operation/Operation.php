@@ -53,6 +53,7 @@ class Operation
 	/**
 	 * @decimals 2
 	 * @mandatory
+	 * @unit €
 	 * @unsigned
 	 * @var float
 	 */

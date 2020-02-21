@@ -29,6 +29,7 @@ $(document).ready(function()
 				}
 			});
 		}
+		redirect('/RDMarmotte/RdmCompta/Compte/soldes', '#quick-menu');
 	});
 
 });

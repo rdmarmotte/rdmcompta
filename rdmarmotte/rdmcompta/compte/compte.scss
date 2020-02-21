@@ -1,0 +1,32 @@
+@import '../../../itrocks/framework/skins/default/colors.scss';
+
+#quick-menu {
+
+	h2 {
+		background-color: #d8d8d8;
+		font-weight: $medium;
+		padding: 4px;
+	}
+
+	ul li {
+		height: 26px !important;
+
+		h3, p {
+			display: table-cell;
+			padding: 4px;
+			vertical-align: middle;
+		}
+
+		h3 {
+			font-weight: normal;
+		}
+
+		p {
+			text-align: right;
+
+			&:after {
+				content: ' €';
+			}
+		}
+	}
+}

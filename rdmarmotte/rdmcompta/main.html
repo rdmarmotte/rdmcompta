@@ -36,19 +36,9 @@
 	</div>
 	<h1>|{@application.ucwords}| - |¦{@class.ucfirst}¦ {@feature.display}|</h1>
 	<!--Menu.get-->{/ITRocks/Framework/Component/Menu/output}<!--end-->
-	<!--Quick_Menu.get.items?-->
 	<nav id="quick-menu">
-		<ul>
-			<!--Quick_Menu.get.items-->
-			<li data-class="{linkClass}">
-				<a class="{?class}" data-confirm-cancel="{?cancel_label}" data-confirm-message="{?confirm_message}" data-confirm-ok="{?confirm_label}" href="app://(link)" target="{link_target}">
-					|{caption}|
-				</a>
-			</li>
-			<!--end-->
-		</ul>
+		{/RDMarmotte/RdmCompta/Compte/soldes}
 	</nav>
-	<!--end-->
 	<!--end-->
 	<!--end-->
 

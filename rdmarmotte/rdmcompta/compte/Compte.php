@@ -49,6 +49,7 @@ class Compte
 	/**
 	 * @getter
 	 * @null
+	 * @unit €
 	 * @user readonly
 	 * @var float
 	 */
@@ -58,6 +59,7 @@ class Compte
 	/**
 	 * @getter
 	 * @null
+	 * @unit €
 	 * @user readonly
 	 * @var float
 	 */
@@ -66,6 +68,7 @@ class Compte
 	//-------------------------------------------------------------------------------- $solde_initial
 	/**
 	 * @null
+	 * @unit €
 	 * @user create_only
 	 * @var float
 	 */
@@ -75,6 +78,7 @@ class Compte
 	/**
 	 * @getter
 	 * @null
+	 * @unit €
 	 * @user readonly
 	 * @var float
 	 */
@@ -84,6 +88,7 @@ class Compte
 	/**
 	 * @getter
 	 * @null
+	 * @unit €
 	 * @user readonly
 	 * @var float
 	 */

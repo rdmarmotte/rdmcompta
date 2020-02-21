@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script src="../../../vendor/components/jquery/jquery.js"></script>
+	<script> path = "../../../"; </script>
+	<script src="../../../itrocks/framework/js/all.js"></script>
+	<style> @import "../../../itrocks/framework/skins/default/all.css"; </style>
+	<title>Soldes des comptes</title>
+</head>
+<body>
+<nav id="quick-menu">
+<!--BEGIN-->
+<!--use RDMarmotte\RdmCompta\Compte-->
+
+	<!--Compte.courant-->
+	<h2>Compte {libelle}</h2>
+	<ul>
+		<li><h3>Rapproché</h3><p>{solde_rapproche.@loc}</p></li>
+		<li><h3>Pointé</h3><p>{solde_pointe.@loc}</p></li>
+		<li><h3>Courant</h3><p>{solde_courant.@loc}</p></li>
+		<li><h3>À venir</h3><p>{solde_a_venir.@loc}</p></li>
+	</ul>
+	<!--end-->
+
+<!--END-->
+</nav>
+</body>
+</html>
