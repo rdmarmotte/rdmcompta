@@ -51,6 +51,9 @@ class List_Controller extends List_\Controller
 		if ($compte = $parameters->getObject(Compte::class)) {
 			Session::current()->set($compte);
 		}
+		elseif ($parameters->has('toutes', true)) {
+			Session::current()->remove(Compte::class);
+		}
 		return parent::run($parameters, $form, $files, $class_name);
 	}
 

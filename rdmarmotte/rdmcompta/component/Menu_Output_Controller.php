@@ -26,7 +26,12 @@ class Menu_Output_Controller extends Output_Controller
 			$menu = Menu::get();
 			$parameters->set(Menu::class, $menu);
 		}
-		array_unshift($menu->blocks, Compte\Menu::bloc());
+		foreach ($menu->blocks as $block) {
+			if ($block->title === 'Comptes') {
+				$block->items = array_merge(Compte\Menu::bloc()->items, $block->items);
+				break;
+			}
+		}
 		return parent::run($parameters, $form, $files);
 	}
 

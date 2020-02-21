@@ -5,8 +5,10 @@ use ITRocks\Framework\Component\Menu;
 
 return [
 	Menu::TITLE => [SL, 'Home', '#main'],
+	'Comptes' => [
+		'/RDMarmotte/RdmCompta/Operations/list/toutes' => 'Tous comptes',
+	],
 	'Paramétrage' => [
-		'/RDMarmotte/RdmCompta/Operations' => 'Opérations',
 		'/RDMarmotte/RdmCompta/Comptes' => 'Comptes',
 		'/RDMarmotte/RdmCompta/Operation/Types' => 'Types'
 	],
