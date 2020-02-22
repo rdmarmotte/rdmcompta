@@ -1,0 +1,7 @@
+@charset "UTF-8";
+article.operation.list tbody td.montant:after {
+  content: ' €'; }
+article.operation.list tbody tr.emis td.montant {
+  color: red; }
+  article.operation.list tbody tr.emis td.montant:before {
+    content: '- '; }
