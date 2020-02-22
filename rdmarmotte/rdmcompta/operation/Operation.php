@@ -5,6 +5,7 @@ use ITRocks\Framework\Locale\Loc;
 use ITRocks\Framework\Mapper\Component;
 use ITRocks\Framework\Property\Reflection_Property;
 use ITRocks\Framework\Tools\Date_Time;
+use ITRocks\Framework\View\Has_Object_Class;
 use RDMarmotte\RdmCompta\Operation\Type;
 
 /**
@@ -15,7 +16,7 @@ use RDMarmotte\RdmCompta\Operation\Type;
  * @feature
  * @representative date, libelle_1, montant
  */
-class Operation
+class Operation implements Has_Object_Class
 {
 	use Component;
 
@@ -90,6 +91,15 @@ class Operation
 			$this->libelle_1,
 			Loc::propertyToLocale(new Reflection_Property($this, 'montant'), $this->montant)
 		]);
+	}
+
+	//----------------------------------------------------------------------------------- objectClass
+	/**
+	 * @return string
+	 */
+	public function objectClass()
+	{
+		return strUri($this->type->sens);
 	}
 
 }

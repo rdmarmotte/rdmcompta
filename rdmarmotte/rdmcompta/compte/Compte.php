@@ -7,6 +7,7 @@ use ITRocks\Framework\Session;
 use ITRocks\Framework\Tools\Date_Time;
 use ITRocks\Framework\User;
 use RDMarmotte\RdmCompta\Compte\Menu;
+use RDMarmotte\RdmCompta\Operation\Type;
 
 /**
  * Compte
@@ -175,14 +176,14 @@ class Compte
 	{
 		$total = 0;
 		$filtre['compte']    = $this;
-		$filtre['type.sens'] = 'émis';
+		$filtre['type.sens'] = Type::EMIS;
 		Dao::select(
 			Operation::class,
 			['montant' => Func::sum()],
 			$filtre,
 			function(Operation $operation) use(&$total) { $total -= $operation->montant; }
 		);
-		$filtre['type.sens'] = 'reçu';
+		$filtre['type.sens'] = Type::RECU;
 		Dao::select(
 			Operation::class,
 			['montant' => Func::sum()],

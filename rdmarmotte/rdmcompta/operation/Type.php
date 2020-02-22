@@ -13,6 +13,10 @@ namespace RDMarmotte\RdmCompta\Operation;
 class Type
 {
 
+	//--------------------------------------------------------------------------------- $sens @values
+	const EMIS = 'émis';
+	const RECU = 'reçu';
+
 	//-------------------------------------------------------------------------------------- $libelle
 	/**
 	 * @alias type
@@ -24,10 +28,10 @@ class Type
 	//----------------------------------------------------------------------------------------- $sens
 	/**
 	 * @mandatory
-	 * @values émis, reçu
+	 * @values self::const
 	 * @var string
 	 */
-	public $sens = 'émis';
+	public $sens = self::EMIS;
 
 	//------------------------------------------------------------------------------------ __toString
 	/**

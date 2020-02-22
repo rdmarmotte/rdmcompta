@@ -1,0 +1,16 @@
+@import '../../../itrocks/framework/skins/default/colors.scss';
+
+article.operation.list tbody {
+
+	td.montant:after {
+		content: ' €';
+	}
+
+	tr.emis td.montant {
+		color: red;
+
+		&:before {
+			content: '- ';
+		}
+	}
+}
