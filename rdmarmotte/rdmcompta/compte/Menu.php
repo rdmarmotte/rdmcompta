@@ -7,6 +7,7 @@ use ITRocks\Framework\Component\Menu\Block;
 use ITRocks\Framework\Component\Menu\Item;
 use ITRocks\Framework\Controller\Feature;
 use ITRocks\Framework\Dao;
+use ITRocks\Framework\User;
 use ITRocks\Framework\View;
 use RDMarmotte\RdmCompta\Compte;
 use RDMarmotte\RdmCompta\Operation;
@@ -30,7 +31,8 @@ abstract class Menu
 		$block = Builder::create(Block::class);
 		$block->title = 'Comptes';
 		$block->items = [];
-		foreach (Dao::readAll(Compte::class, Dao::sort()) as $compte) {
+		$comptes = Dao::search(['titulaires' => User::current()], Compte::class, Dao::sort());
+		foreach ($comptes as $compte) {
 			/** @noinspection PhpUnhandledExceptionInspection class */
 			$item = Builder::create(Item::class);
 			$item->caption  = $compte->libelle;

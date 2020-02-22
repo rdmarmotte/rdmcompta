@@ -1,24 +1,21 @@
 <?php
-namespace RDMarmotte\RdmCompta\Operation;
+namespace RDMarmotte\RdmCompta\Compte;
 
-use ITRocks\Framework\Controller\Parameters;
 use ITRocks\Framework\Dao\Func;
 use ITRocks\Framework\Dao\Option;
 use ITRocks\Framework\Feature\List_;
-use ITRocks\Framework\Session;
 use ITRocks\Framework\Tools\List_Data;
 use ITRocks\Framework\User;
-use RDMarmotte\RdmCompta\Compte;
 
 /**
- * Contrôleur de liste d'opérations
+ * Contrôleur pour la liste des comptes
  */
 class List_Controller extends List_\Controller
 {
 
 	//-------------------------------------------------------------------------------- readDataSelect
 	/**
-	 * Restreint les données avec le compte sélectionné, et l'utilisateur connecté
+	 * Restreint les données avec l'utilisateur connecté
 	 *
 	 * @param $class_name      string Class name for the read object
 	 * @param $properties_path string[] the list of the columns names : only those properties
@@ -33,36 +30,10 @@ class List_Controller extends List_\Controller
 	 */
 	public function readDataSelect($class_name, array $properties_path, $search, array $options)
 	{
-		if ($compte = Session::current()->get(Compte::class)) {
-			$search = $search
-				? Func::andOp(['compte' => $compte, 'compte.titulaires' => User::current(), $search])
-				: ['compte' => $compte, 'compte.titulaires' => User::current()];
-		}
-		else {
-			$search = $search
-				? Func::andOp(['compte.titulaires' => User::current(), $search])
-				: ['compte.titulaires' => User::current()];
-		}
+		$search = $search
+			? Func::andOp(['titulaires' => User::current(), $search])
+			: ['titulaires' => User::current()];
 		return parent::readDataSelect($class_name, $properties_path, $search, $options);
-	}
-
-	//------------------------------------------------------------------------------------------- run
-	/**
-	 * @param $parameters Parameters
-	 * @param $form       array
-	 * @param $files      array[]
-	 * @param $class_name string
-	 * @return mixed
-	 */
-	public function run(Parameters $parameters, array $form, array $files, $class_name)
-	{
-		if ($compte = $parameters->getObject(Compte::class)) {
-			Session::current()->set($compte);
-		}
-		elseif ($parameters->has('toutes', true)) {
-			Session::current()->remove(Compte::class);
-		}
-		return parent::run($parameters, $form, $files, $class_name);
 	}
 
 }
