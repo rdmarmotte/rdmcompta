@@ -33,6 +33,7 @@ class Compte
 
 	//-------------------------------------------------------------------------------------- $libelle
 	/**
+	 * @mandatory
 	 * @var string
 	 */
 	public $libelle;
@@ -67,12 +68,13 @@ class Compte
 
 	//-------------------------------------------------------------------------------- $solde_initial
 	/**
+	 * @mandatory
 	 * @null
 	 * @unit €
 	 * @user create_only
 	 * @var float
 	 */
-	public $solde_initial;
+	public $solde_initial = 0;
 
 	//--------------------------------------------------------------------------------- $solde_pointe
 	/**
@@ -97,6 +99,7 @@ class Compte
 	//----------------------------------------------------------------------------------- $titulaires
 	/**
 	 * @link Map
+	 * @mandatory
 	 * @var User[]
 	 */
 	public $titulaires;

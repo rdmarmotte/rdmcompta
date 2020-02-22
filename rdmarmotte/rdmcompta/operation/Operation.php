@@ -24,6 +24,7 @@ class Operation
 	 * @composite
 	 * @default Compte::courant
 	 * @link Object
+	 * @mandatory
 	 * @var Compte
 	 */
 	public $compte;
@@ -39,6 +40,7 @@ class Operation
 
 	//------------------------------------------------------------------------------------ $libelle_1
 	/**
+	 * @mandatory
 	 * @var string
 	 */
 	public $libelle_1;
