@@ -6,6 +6,7 @@ use ITRocks\Framework\Mapper\Component;
 use ITRocks\Framework\Property\Reflection_Property;
 use ITRocks\Framework\Tools\Date_Time;
 use ITRocks\Framework\View\Has_Object_Class;
+use RDMarmotte\RdmCompta\Operation\Libelle;
 use RDMarmotte\RdmCompta\Operation\Type;
 
 /**
@@ -41,8 +42,10 @@ class Operation implements Has_Object_Class
 
 	//------------------------------------------------------------------------------------ $libelle_1
 	/**
+	 * @filters compte, type
+	 * @link Object
 	 * @mandatory
-	 * @var string
+	 * @var Libelle
 	 */
 	public $libelle_1;
 
